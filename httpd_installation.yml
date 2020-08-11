@@ -1,0 +1,12 @@
+---
+ - hosts: all
+   name: using ymal playbook installing httpd
+   tasks:
+   - name: install apache
+     apt: -y
+       name: httpd
+       state: latest
+   - name: start apache service
+     service:
+       name: httpd
+       state: present

@@ -1,0 +1,19 @@
+---
+- hosts: local
+  tasks:
+   - apt:
+          update_cache: true
+          become: true
+          name: "Update APT package manager repositories cache"
+         
+   - apt: 
+          name: "{{ item }}"
+          state: present
+          become: true
+          name: "Install openjdk java"
+          with_items: openjdk-8-jdk
+
+   - copy: 
+        src: /var/lib/jenkins/workspace/job1/build/libs/functionhall-service-0.0.1-SNAPSHOT.jar
+        dest: /root/jar
+           

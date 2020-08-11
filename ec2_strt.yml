@@ -1,0 +1,14 @@
+---
+ - hosts: local
+   connection: local
+   gather_facts: false
+   tasks: 
+   - name: Start ec2_instnce
+     ec2:
+      instance_ids:
+              - "i-0386c3083b8890774"
+              - "i-03e7d2ff35e75d678"
+      region: us-east-2
+      state: running
+      wait: yes
+
